@@ -1,4 +1,4 @@
 export interface Author {
   name: String;
-  LastName: String;
+  lastName: String;
 }

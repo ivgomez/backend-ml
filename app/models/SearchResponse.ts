@@ -1,7 +1,7 @@
 import { BaseResponse } from "./BaseResponse";
 import { Item } from "./Item";
 
-export interface ProductResponse extends BaseResponse {
+export interface SearchResponse extends BaseResponse {
   categories: String[];
   items: Item[];
 }
