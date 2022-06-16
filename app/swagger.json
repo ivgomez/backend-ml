@@ -1,0 +1,204 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "ML Backend Services Swagger Documentation",
+    "version": "1.0.0",
+    "title": "Backend ML",
+    "contact": {
+      "email": "iv.gomez@hotmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "schemes": ["http"],
+  "host": "localhost:3005",
+  "basePath": "/api",
+  "paths": {
+    "/items": {
+      "get": {
+        "summary": "Get all the items",
+        "tags": ["Search"],
+        "description": "Get all the items",
+        "produces": ["application/json"],
+        "parameters": [{ "in": "query" }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/searchResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid status value",
+            "schema": {
+              "$ref": "#/definitions/InvalidResponse"
+            }
+          }
+        }
+      }
+    },
+    "/items/{id}": {
+      "get": {
+        "summary": "Get a single item",
+        "tags": ["Search by id"],
+        "description": "Get a single item",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of item to return",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "$ref": "#/definitions/productResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid status value",
+            "schema": {
+              "$ref": "#/definitions/InvalidResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "searchResponse": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "lastname": {
+              "type": "string"
+            }
+          }
+        },
+        "categories:": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "price": {
+                "type": "object",
+                "properties": {
+                  "currency": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "number"
+                  },
+                  "decimals": {
+                    "type": "number"
+                  }
+                }
+              },
+              "picture": {
+                "type": "string"
+              },
+              "condition": {
+                "type": "string"
+              },
+              "free_shipping": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "productResponse": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "lastname": {
+              "type": "string"
+            }
+          }
+        },
+        "item": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "price": {
+              "type": "object",
+              "properties": {
+                "currency": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "number"
+                },
+                "decimals": {
+                  "type": "number"
+                }
+              }
+            },
+            "picture": {
+              "type": "string"
+            },
+            "condition": {
+              "type": "string"
+            },
+            "free_shipping": {
+              "type": "boolean"
+            },
+            "sold_quantity": {
+              "type": "boolean"
+            },
+            "description": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "InvalidResponse": {
+      "type": "object",
+      "properties": {
+        "statusCode": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,10 @@
 import { SearchResponse } from "../models/SearchResponse";
-import { Request } from "express";
 import axios from "axios";
 import {
   createOkResponse,
   createErrorResponse,
 } from "../utils/responseBuilder";
 import { Item } from "../models/Item";
-
 export class SearchService {
   constructor() {}
 

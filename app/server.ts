@@ -1,7 +1,8 @@
 import express from "express";
 import SearchRouter from "./routes/SearchRouter";
 import "dotenv/config";
-import { searchController } from "./controllers";
+import swaggerUi from "swagger-ui-express";
+import swaggerDocument from "../app/swagger.json";
 
 // INITIALIZATIONS
 const app = express();
@@ -11,6 +12,9 @@ app.set("port", process.env.PORT || 3005);
 
 //ROUTES
 app.use("/api", SearchRouter);
+
+// SWAGGER
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument, {}));
 
 // START SERVER
 app.listen(app.get("port"), () => {
