@@ -12,8 +12,8 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "schemes": ["http"],
-  "host": "localhost:3005",
+  "schemes": ["https", "http"],
+  "host": "backend-ml.azurewebsites.net",
   "basePath": "/api",
   "paths": {
     "/items": {
@@ -22,7 +22,15 @@
         "tags": ["Search"],
         "description": "Get all the items",
         "produces": ["application/json"],
-        "parameters": [{ "in": "query" }],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "description": "Search query",
+            "required": false,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "successful operation",

@@ -8,6 +8,7 @@
     "build": "tsc",
     "dev": "nodemon",
     "ts-node": "ts-node app/server.ts",
+    "clean": "rm -rf app",
     "test": "jest",
     "test:watch": "jest --watch"
   },

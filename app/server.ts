@@ -2,7 +2,7 @@ import express from "express";
 import "dotenv/config";
 import SearchRouter from "./routes/SearchRouter";
 import swaggerUi from "swagger-ui-express";
-import swaggerDocument from "../app/swagger.json";
+import swaggerDocument from "./swagger.json";
 
 // INITIALIZATIONS
 const app = express();
