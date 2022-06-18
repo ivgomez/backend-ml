@@ -1,6 +1,6 @@
 import express from "express";
-import SearchRouter from "./routes/SearchRouter";
 import "dotenv/config";
+import SearchRouter from "./routes/SearchRouter";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../app/swagger.json";
 
