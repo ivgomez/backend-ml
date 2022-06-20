@@ -31,16 +31,17 @@ const author: Author = {
 };
 
 export const searchMapper = (data: any) => {
-  const items = itemsMapper(data?.results);
+  let items: Item[];
+  items = itemsMapper(data.results);
   items.length = 4;
   const categories = categoriesMapper(data?.available_filters);
 
-  const searchModel: SearchResponse = {
+  const result: SearchResponse = {
     author,
     categories,
     items,
   };
-  return { searchModel };
+  return result;
 };
 
 export const productMapper = (productInfo: any, description: string) => {
@@ -61,5 +62,5 @@ export const productMapper = (productInfo: any, description: string) => {
       description,
     },
   };
-  return { product };
+  return product;
 };

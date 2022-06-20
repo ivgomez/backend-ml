@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import "dotenv/config";
 import SearchRouter from "./routes/SearchRouter";
 import swaggerUi from "swagger-ui-express";
@@ -9,6 +10,10 @@ const app = express();
 
 // SETTINGS
 app.set("port", process.env.PORT || 3005);
+
+//CORS
+app.use(cors());
+//app.use(express.json());
 
 //ROUTES
 app.use("/api", SearchRouter);

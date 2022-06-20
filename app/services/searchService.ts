@@ -13,8 +13,8 @@ export class SearchService {
     try {
       const apiResponse = await axios.get(url);
       const response = apiResponse.data;
-      const searchModel = searchMapper(response);
-      return createOkResponse({ result: searchModel });
+      const result = searchMapper(response);
+      return createOkResponse(result);
     } catch (error) {
       return createErrorResponse(error);
     }
