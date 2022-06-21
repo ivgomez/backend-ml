@@ -4,20 +4,19 @@ import { ProductResponse } from "../models/ProductResponse";
 import { SearchResponse } from "../models/SearchResponse";
 
 const itemsMapper = (items: any[]): Item[] =>
-  items.map(
-    (item: any): Item => ({
-      id: item.id,
-      title: item.title,
-      price: {
-        currency: item.currency_id,
-        amount: item.price,
-        decimals: 0,
-      },
-      picture: item.thumbnail,
-      condition: item.condition,
-      free_shipping: item.shipping.free_shipping,
-    })
-  );
+  items.map((item: any) => ({
+    id: item.id,
+    title: item.title,
+    price: {
+      currency: item.currency_id,
+      amount: item.price,
+      decimals: 0,
+    },
+    picture: item.thumbnail,
+    condition: item.condition,
+    location: item.address.state_name,
+    freeShipping: item.shipping.free_shipping,
+  })) || [];
 
 const categoriesMapper = (categories: any[]): string[] =>
   categories
@@ -31,8 +30,8 @@ const author: Author = {
 };
 
 export const searchMapper = (data: any) => {
-  let items: Item[];
-  items = itemsMapper(data.results);
+  let items: Item[] = [];
+  items = itemsMapper(data?.results);
   items.length = 4;
   const categories = categoriesMapper(data?.available_filters);
 
@@ -57,8 +56,8 @@ export const productMapper = (productInfo: any, description: string) => {
       },
       picture: productInfo.pictures[0].url,
       condition: productInfo.condition,
-      free_shipping: productInfo.shipping.free_shipping,
-      sold_quantity: productInfo.sold_quantity,
+      freeShipping: productInfo.shipping.free_shipping,
+      soldQuantity: productInfo.sold_quantity,
       description,
     },
   };

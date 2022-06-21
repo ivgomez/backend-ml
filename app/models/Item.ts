@@ -6,7 +6,8 @@ export interface Item {
   price: Price;
   picture: String;
   condition: String;
-  free_shipping: Boolean;
-  sold_quantity?: Number;
+  location?: String;
+  freeShipping: Boolean;
+  soldQuantity?: Number;
   description?: String;
 }
