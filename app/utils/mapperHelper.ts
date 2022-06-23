@@ -32,7 +32,11 @@ const author: Author = {
 export const searchMapper = (data: any) => {
   let items: Item[] = [];
   items = itemsMapper(data?.results);
-  items.length = 4;
+
+  if (items.length > 4) {
+    items.length = 4;
+  }
+
   const categories = categoriesMapper(data?.available_filters);
 
   const result: SearchResponse = {
