@@ -24,6 +24,14 @@ const categoriesMapper = (categories: any[]): string[] =>
     ?.values?.sort((a: any, b: any) => b.results - a.results)
     .map((item: any) => item.name) ?? [];
 
+const categoriesByItemMapper = (categories: any[]): string[] => {
+  const categoriesFromFilter =
+    categories.find((item: any) => item.id === "category")?.values[0] ?? [];
+  const categoriesPathFromRoot =
+    categoriesFromFilter.path_from_root.map((item: any) => item.name) ?? [];
+  return categoriesPathFromRoot;
+};
+
 const author: Author = {
   name: "Ivan Dario",
   lastName: "Gomez",
@@ -47,9 +55,14 @@ export const searchMapper = (data: any) => {
   return result;
 };
 
-export const productMapper = (productInfo: any, description: string) => {
+export const productMapper = (
+  productInfo: any,
+  description: string,
+  categories: any[]
+) => {
   const product: ProductResponse = {
     author,
+    categories: categoriesByItemMapper(categories) ?? [],
     item: {
       id: productInfo.id,
       title: productInfo.title,
