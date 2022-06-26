@@ -30,6 +30,7 @@ Open [http://localhost:3005](http://localhost:3005) and us [Postman](https://www
 ## Documentation
 
 - Swagger: https://backend-ml.azurewebsites.net/api-docs/
+- API doc: https://github.com/ivgomez/backend-ml/wiki/API-Documentation
 
 ## Libraries
 
