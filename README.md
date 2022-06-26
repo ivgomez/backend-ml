@@ -10,7 +10,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3005](http://localhost:3005) and us [Postman](https://www.postman.com/) or any other API platform to test the endpoints
+Open [http://localhost:3005](http://localhost:3005) and use [Postman](https://www.postman.com/) or any other API platform to test the endpoints
 
 ## Environments
 
