@@ -2,15 +2,27 @@ This is a [Node](https://nextjs.org/) project bootstrapped with [`npm init`](htt
 
 ## Getting Started
 
-First, run the development server:
+### How to run the project locally
 
-```bash
-npm run dev
-# or
-yarn dev
+1. Clone the repository:
+
+```
+git clone https://github.com/ivgomez/backend-ml.git
 ```
 
-Open [http://localhost:3005](http://localhost:3005) and use [Postman](https://www.postman.com/) or any other API platform to test the endpoints
+2. run `cd backend-ml`
+
+3. run `npm ci` (or if there is no package-lock.json file, run `npm i`)
+
+4. run `npm run dev`
+
+Open [http://localhost:3005](http://localhost:3005) with your browser to see the result.
+
+### How to run the tests
+
+run `npm run test`
+
+or `npm run test:watch`
 
 ## Environments
 
